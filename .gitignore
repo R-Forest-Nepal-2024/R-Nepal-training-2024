@@ -1,3 +1,11 @@
+## Custom gitignore
+data/
+data-source/
+data-spatial/
+results/
+
+*.DS_Store
+
 # History files
 .Rhistory
 .Rapp.history

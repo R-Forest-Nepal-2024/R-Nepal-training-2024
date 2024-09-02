@@ -10,9 +10,8 @@ RS <- cstock |> filter(id == 'RS') |> pull(value)
 CF <- cstock |> filter(id == 'CF') |> pull(value)
 RP <- cstock |> filter(id == 'RP') |> pull(value)
 
-E_trans <- AD_trans2 |>
-  select(redd_activity, lu_id_initial, lu_id_final, trans_AD = trans_area) |>
-  filter(redd_activity %in% c("deforestation", "forest degradation")) |> 
+E_trans <- AD_trans_E |>
+  rename(trans_AD = trans_area) |>
   left_join(tmp_cstock, by = join_by(lu_id_initial == lu_id)) |>
   left_join(tmp_cstock, by = join_by(lu_id_final == lu_id), suffix = c("_initial", "_final")) |>
   mutate(

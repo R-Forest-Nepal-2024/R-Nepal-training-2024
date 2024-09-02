@@ -1,12 +1,12 @@
 
 
 tree |> 
-  filter(plot_id_new == vec_plot_manytrees) |>
+  filter(plot_id_new == "128-51-1") |>
   ggplot() +
   geom_point(aes(x = tree_distance, y = tree_azimuth))
 
 gg <- tree |> 
-  filter(plot_id_new == vec_plot_manytrees) |>
+  filter(plot_id_new == "128-51-1") |>
   ggplot() +
   geom_vline(xintercept = c(0, 4, 8, 15, 20), colour = "grey80", linewidth = 0.2) +
   geom_hline(yintercept = c(0, 90, 180, 270), colour = "grey80", linewidth = 0.2) +
@@ -21,6 +21,6 @@ gg <- tree |>
     y = "",
     color = "",
     size = "",
-    subtitle = paste0("tree maps for plot: ", vec_plot_manytrees)
+    subtitle = paste0("tree maps for plot: ", "128-51-1")
   )
 print(gg)

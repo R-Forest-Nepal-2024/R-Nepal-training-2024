@@ -135,4 +135,4 @@ ggsave(
   width = 15, height = 12, units = "cm", dpi = 300
 )
 
-write_sf(sf_plot2, "data/sf_plot2.geojson")
+write_sf(sf_plot2, "results/sf_plot2.geojson")

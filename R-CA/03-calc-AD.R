@@ -51,6 +51,22 @@ AD_trans2 <- AD_trans |>
 
 table(AD_trans2$lu_id_initial, AD_trans2$lu_id_final)
 
+write_csv(AD_trans2, "results/AD_trans2.csv")
+
+## Emissions only, filter transitions from REDD+ activities linked to emissions
+AD_trans_E <- AD_trans2 |>
+  filter(redd_activity %in% c("deforestation", "forest degradation")) |>
+  mutate(trans_id = paste0(lu_id_initial, "-", lu_id_final)) |>
+  select(
+    redd_activity, trans_id, lu_id_initial, lu_id_final, trans_plot_count, 
+    trans_area, trans_se
+    ) |>
+  arrange(redd_activity)
+AD_trans_E
+
+write_csv(AD_trans_E, "results/AD-emission-transitions.csv")
+
+
 # AD_DG <- AD_trans2 |>
 #   filter(redd_activity == "forest degradation")
 # 
